@@ -15,10 +15,15 @@ const careTakerSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    phone2: {
+        type: String
+    },
     address: {
         type: String,
         required: true
     }
 });
 
-module.exports = mongoose.model('CareTaker', careTakerSchema);
+const CareTaker = mongoose.model('CareTaker', careTakerSchema);
+
+module.exports = CareTaker;

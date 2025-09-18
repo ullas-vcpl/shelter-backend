@@ -1,13 +1,21 @@
 //controller to create a new animal record
 const Animal = require('../models/animal.model.js');
-const careTaker = require('../models/careTaker.model.js');
+const CareTaker = require('../models/careTaker.model.js');
 const uploadToCloudinary = require('../utils/uploadToCloudinary.js');
 
 const createAnimal = async (req, res) => {
     try {
         
         const newAnimal = new Animal(req.body);
-        const newCareTaker = new careTaker(req.body);
+        const newCareTaker = new CareTaker(req.body);
+        //check if caretaker exists
+        const existingCareTaker = await CareTaker.findOne({ phone: newCareTaker.phone });
+        if (existingCareTaker) {
+            newAnimal.caretaker = existingCareTaker._id;
+        } else {
+            const savedCareTaker = await newCareTaker.save();
+            newAnimal.caretaker = savedCareTaker._id;
+        }   
         console.log(newCareTaker);
         //const caretakerData = new careTaker(req.body);
         //upload image to cloudinary if file is present
