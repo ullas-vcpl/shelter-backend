@@ -5,6 +5,7 @@ const routes = require('./routes/routes.js');
 
 app.use(cors());
 app.use(express.json());
+app.use(require('cookie-parser')());
 app.use(express.urlencoded({ extended: true }));
 app.use('/', routes);
 
