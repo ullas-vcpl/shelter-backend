@@ -4,7 +4,7 @@
 const User = require('../models/user.model.js');
 
 const userLogout = async (req, res) => {   
-console.log(req.user);
+
    const user= await User.findOne({ username: req.user.username });
    if(!user){
     return res.status(400).json({ message: 'User not found' });
