@@ -7,9 +7,11 @@ const authorize = require('../middlewares/authorization.js');
 const upload = require('../middlewares/multer.local.js');
 
 // Define your routes here
-router.post('/create', authorize, upload.single('photo'), createAnimal);
+
 router.post('/register', createUser);
 router.post('/login', loginUser);
+//protected routes
 router.post('/logout', authorize, userLogout);
+router.post('/create', authorize, upload.single('photo'), createAnimal);
 
 module.exports = router;

@@ -47,6 +47,7 @@ const authorize = (req, res, next) => {
     // console.log(req.cookies);
     // next();
     const token = req.cookies.accessToken || req.headers['authorization']?.split(' ')[1];
+    console.log("Access token from cookies or headers:", req.cookies);
     if (!token) {
         // check and validate refresh token and issue new access token
 

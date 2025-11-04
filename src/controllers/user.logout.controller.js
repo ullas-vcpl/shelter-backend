@@ -3,7 +3,8 @@
 
 const User = require('../models/user.model.js');
 
-const userLogout = async (req, res) => {   
+const userLogout = async (req, res) => {  
+   console.log("Logout request for user:", req.user); 
 
    const user= await User.findOne({ username: req.user.username });
    if(!user){
