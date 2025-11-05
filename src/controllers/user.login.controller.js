@@ -25,8 +25,8 @@ const userLogin = async (req, res) => {
 
         // Set refresh token in httpOnly cookie
         // send access token and refresh token in cookies
-        res.cookie('refreshToken', refreshToken, { httpOnly: true, secure: false, sameSite: 'lax', path: '/' });
-        res.cookie('accessToken', accessToken, { httpOnly: true, secure: false, sameSite: 'lax', path: '/' });
+        res.cookie('refreshToken', refreshToken, { httpOnly: true, secure: true, sameSite: 'lax', path: '/' });
+        res.cookie('accessToken', accessToken, { httpOnly: true, secure: true, sameSite: 'lax', path: '/' });
         return res.status(200).json({ message: 'Login successful', username: user.username });
     } catch (error) {
         console.error('Error logging in:', error);
