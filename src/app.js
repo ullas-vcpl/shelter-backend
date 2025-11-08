@@ -3,9 +3,9 @@ const cors = require('cors');
 const app = express();
 const routes = require('./routes/routes.js');
 
-app.use(cors({origin: ["https://shelter-frontend-rho.vercel.app/",
-"http://localhost:3000",
-"https://shelter.hef-hearts.org/"
+app.use(cors({origin: ["https://shelter-frontend-rho.vercel.app",
+"http://localhost:5173",
+"https://shelter.hef-hearts.org"
 
 ], credentials: true}));
 app.use(express.json());
