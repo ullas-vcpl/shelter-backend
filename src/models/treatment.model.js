@@ -15,6 +15,6 @@ const tratmentSchema = new mongoose.Schema({
     files: [{ type: String }] // Array of file URLs or paths
 },{ timestamps: true });
 
-const Tratment = mongoose.model('Tratment', tratmentSchema);
+const Treatment = mongoose.model('Treatment', tratmentSchema);
 
-module.exports = Tratment;
+module.exports = Treatment;
