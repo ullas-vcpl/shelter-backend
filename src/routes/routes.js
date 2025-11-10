@@ -17,7 +17,7 @@ router.post('/login', loginUser);
 router.post('/logout', authorize, userLogout);
 router.post('/create', authorize, upload.single('photo'), createAnimal);
 router.get('/search', searchbytag);
-router.post('/treatment/update/:animalId', authorize, updateTreatment);
-router.get('/searchtreatment/:animalId', authorize, searchTreatment);
+router.post('/update/', authorize, upload.single('file'), updateTreatment);
+router.get('/searchtreatment', authorize, searchTreatment);
 
 module.exports = router;
